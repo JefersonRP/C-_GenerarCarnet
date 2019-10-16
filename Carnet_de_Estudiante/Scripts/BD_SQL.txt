@@ -1,0 +1,59 @@
+create database Carnet
+go
+use Carnet
+create table estudiante
+(
+id varchar(12),
+dni char(8),
+nombre varchar (100),
+paterno varchar (100),
+materno varchar (100),
+foto image,
+)
+go
+
+--PROCEDIMIENTO PARA LISTAR LA TABLA ESTUDIANTES
+create procedure sp_listar
+as
+begin
+select id as 'CODIGO',dni AS 'DNI',nombre AS 'NOMBRES',paterno AS 'APELLIDO PATERNO',materno AS 'APELLIDO MATERNO', foto as 'FOTO' from estudiante
+end
+go
+--PROCEDIMIENTO PARA REGISTRAR EN LA TABLA ESTUDIANTES
+create procedure sp_registrar
+@id varchar(12),
+@dni int,
+@nombre varchar (100),
+@paterno varchar (100),
+@materno varchar (100),
+@foto image
+as
+begin
+insert into estudiante values ((select 'i'+convert(char(4),year(GETDATE()))+(select right('00000'+convert(varchar(20),(select isnull((substring((select max(id) from estudiante),6,5)+1),'1'))),5))
+),@dni,@nombre,@paterno,@materno,@foto)
+end
+go
+
+--PROCEDIMIENTO PARA LISTAR POR CODIGO Y DNI
+create procedure sp_listaralumnoxdniocod
+@filtro varchar(11)
+as
+begin
+select id as 'CODIGO',dni AS 'DNI',nombre AS 'NOMBRES',paterno AS 'APELLIDO PATERNO',materno AS 'APELLIDO MATERNO', foto as 'FOTO' from estudiante
+where id like '%'+@filtro+'%' or dni like '%'+@filtro+'%'
+end
+go
+
+--AUTOGENERAR EL CODIGO
+CREATE PROC SP_Autogenerar
+AS
+BEGIN
+select 'i'+ convert(varchar(20),YEAR(GETDATE())) + (select right('00000000'+convert(varchar(20),(select convert(int,(SUBSTRING((select max(id) from estudiante),6,5))))+1),5))
+END
+GO
+
+
+--SELECT PARA VER LA DONDE SE HICIERON LOS REGISTROS
+select id as Codigo, dni as DNI, nombre as Nombres, paterno as [Apellido Paterno], materno as [Apellido Materno],
+foto as [Foto en Binario]  
+from estudiante

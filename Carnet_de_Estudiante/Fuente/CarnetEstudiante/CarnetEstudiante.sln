@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarnetEstudiante", "CarnetEstudiante\CarnetEstudiante.csproj", "{C2401CEB-CE6A-44B9-8989-06BED515AAE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2401CEB-CE6A-44B9-8989-06BED515AAE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2401CEB-CE6A-44B9-8989-06BED515AAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2401CEB-CE6A-44B9-8989-06BED515AAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2401CEB-CE6A-44B9-8989-06BED515AAE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27E927BE-7326-487F-8F18-103A1A8C6C42}
+	EndGlobalSection
+EndGlobal
